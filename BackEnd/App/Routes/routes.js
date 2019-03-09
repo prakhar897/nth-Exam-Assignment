@@ -1,9 +1,27 @@
 const pool = require('../Data/config');
 
-const router = app => {
+const router = (app , client) => {
+
+	let redisMiddleware = (req, res, next) => {
+      let key = "__expIress__" + req.originalUrl || req.url;
+      client.get(key, function(err, reply){
+        if(reply){
+            res.send(reply);
+            console.log("Response from Redis Cache");
+        }else{
+            res.sendResponse = res.send;
+            res.send = (body) => {
+                client.set(key,body);
+                res.sendResponse(body);
+            }
+            next();
+        }
+      });
+    };
+
     app.get('/', (request, response) => {
         response.send({
-            message: 'Node.js and Express REST API'
+            message: 'HOME PAGE'
         });
     });
 
@@ -24,6 +42,7 @@ const router = app => {
 		});
 	});
 
+	//Q1
 	app.post('/user', (request, response) => {
 	    pool.query('INSERT INTO user SET ?', request.body, (error, result) => {
 	        if (error) throw error;
@@ -32,26 +51,47 @@ const router = app => {
 	    });
 	});
 
-	// Update an existing user
-	app.put('/user/:id', (request, response) => {
-	    const id = request.params.id;
-	 
-	    pool.query('UPDATE user SET ? WHERE id = ?', [request.body, id], (error, result) => {
-	        if (error) throw error;
-	 
-	        response.send('User updated successfully.');
-	    });
+	//Q5
+	app.get('/ques/:ques_id',redisMiddleware, (request, response) => {
+    	const ques_id = request.params.ques_id;
+
+    	pool.query('SELECT description FROM question WHERE id = ?', ques_id , (error, result) => {
+	       	if (error) throw error;
+	        response.send(result);
+	        console.log("Response from SQL Server");
+    	});  
 	});
 
-	app.delete('/user/:id', (request, response) => {
-	    const id = request.params.id;
-	 
-	    pool.query('DELETE FROM user WHERE id = ?', id, (error, result) => {
+	//Q2
+	app.get('/ques/:exam_name', (request, response) => {
+    	const exam_name = request.params.exam_name;
+	    pool.query('SELECT * FROM question WHERE exams = ?', exam_name , (error, result) => {
 	        if (error) throw error;
 	 
-	        response.send('User deleted.');
-	    });
+	        response.send(result);
+    	});
 	});
+
+	//Q3
+	app.get('/ques/:ques_id/users', (request, response) => {
+    	const ques_id = request.params.ques_id;
+	    pool.query('SELECT user_id FROM user_question WHERE question_id = ?', ques_id , (error, result) => {
+	        if (error) throw error;
+	 
+	        response.send(result);
+    	});
+	});
+
+	//Q4
+	app.get('/user/:user_id/ques', (request, response) => {
+    	const user_id = request.params.user_id;
+	    pool.query('SELECT question_id FROM user_question WHERE user_id = ?', user_id , (error, result) => {
+	        if (error) throw error;
+	 
+	        response.send(result);
+    	});
+	});
+
 }
 
 // Export the router

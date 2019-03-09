@@ -1,19 +1,12 @@
 // Require packages and set the port
 const express = require('express');
 const port = 3000;
-const bodyParser = require('body-parser');
 const app = express();
-
+const redis = require('redis')
+const client = redis.createClient();
 const routes = require('./App/Routes/routes');
 
- 
-// Use Node.js body parsing middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: true,
-})); 
-
-routes(app);
+routes(app,client);
  
 // Start the server
 const server = app.listen(port, (error) => {
