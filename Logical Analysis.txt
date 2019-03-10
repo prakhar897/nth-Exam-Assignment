@@ -1,0 +1,23 @@
+a) A student faces a lot of challenges while preparing for exams.
+    1. Time Management - A disciplined routine on what to study and when to study goes a long way to helping you to succeed. Unfortunately a lot of students have poor time management skills which hinders their progress greatly.
+
+    2. Procrastination - students fail to perform good at exams due to procrastination. Rather than concentrating on the goals, students are often inspired by success stories. They spend more time on reading through an article about other’s success and doesn’t spend time on their preparations. Moreover, social media and other devices also break the concentration. It is advisable to keep the phone and other such items at bay and not to touch them while studying.
+
+    3. Intense Competition - Students nowadays are afraid of failing. They are afraid of letting their parents and family down. Some people find the exam time so stressful that they become ill, both mentally and/or physically.
+
+b) I think the most critical data points are the ones in which the student gave an incorrect answer. This means that the student had studied that topic and made a minor mistake while attempting the question. This can be corrected by making the student practice more question of similar types.
+
+c) I will try to minimize the number of incorrect answers of the students.I will do this by-
+	1. A standard Test will be conducted for each domain of the course.
+	2. The test will be divided into different topics of each domain.
+	3. I will take into account the number of incorrect answers for each topic for each student.
+	4. A threshold will be set depending on the incorrect answers for each topic of all students.
+	5. If a student crosses the threshold amount, he will be opted for a practice session in that particular topic.
+
+d) Let us divide the question paper into their respective topics. Next, we need to analyze all students for their performance in each topic. We need to see the performance of all students in all topics.
+
+If a student is weak in a topic that is he does not attempt the questions of particular topic,then we need to encourage that student to study that topic. A study plan for that topic will be quite helpful. We should also keep in mind that the study plan shouldn't overlpa with the students regular studies.
+
+If a student gave a lot of incorrect answers in the topic,then it means that he lacks practice in that topic. So a mini-test could be conducted to help the student on that topic.
+
+We should lower the amounts of questions from that topic in which he is consistently performing well. Keep in mind, we shouldn't all questions from that topic or else the student might forget it.  

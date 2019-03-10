@@ -14,6 +14,10 @@ Q2: -Open Command Prompt
 	-type "java Coding_Q2",press Enter
 	-Enter testcases
 
+Logical Analysis:
+
+-Open "Logical Analysis.txt"
+
 NodeJs Assignment:
 
 -Make sure you have node.js,redis and mysql installed.
@@ -22,3 +26,8 @@ NodeJs Assignment:
 	-"npm install express mysql redis --save"
 -run "node index.js"/"npm start"
 
+Machine Learning:
+
+-Make sure you have python and jupyter notebook installed.
+-run jupyter notebook
+-open "Notebook.ipynb"
